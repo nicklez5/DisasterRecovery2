@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from ..backenddb.models import Machine,Job,Timecard
+from .models import CustomUser
+from backenddb.models import Machine,Job,Timecard
 
 class AdminAccount(UserAdmin):
     list_display = ('username', 'name','is_admin')

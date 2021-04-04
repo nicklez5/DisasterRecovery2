@@ -3,7 +3,8 @@ from django.urls import path, include
 from .views import (
     create_user,
     user_registration,
-    login_request
+    login_request,
+    UsersListView
 )
 app_name = 'login'
 

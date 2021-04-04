@@ -14,14 +14,16 @@ def get_id():
     x = uuid.uuid4().hex[:6].upper()
     return x
 
+
+
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=40,unique=True,default='')
     name = models.CharField(max_length=40,unique=False,default='')
     is_admin = models.BooleanField(_('admin status'),default=False)
     password = models.CharField(max_length=100,editable=False,default='')
-    listofjobs = models.ManyToManyField(settings.AUTH_USER_MODEL,through="JobMembers")
-    listofmachines = models.ManyToManyField(settings.AUTH_USER_MODEL,through="MachineMembers")
-    listoftimecards = models.ManyToManyField(settings.AUTH_USER_MODEL,through="TimecardMembers")
+    listofjobs = models.ManyToManyField(Job)
+    listofmachines = models.ManyToManyField(Timecard)
+    listoftimecards = models.ManyToManyField(Machine)
 
     objects = UserManager()
     USERNAME_FIELD = 'username'
@@ -38,18 +40,6 @@ class CustomUser(AbstractUser):
         verbose_name_plural = _('users')
         ordering = ['-username']
 
-class AdminIntermediate(models.Model):
-    machine = models.ForeignKey(Machine)
-    job = models.ForeignKey(Job)
-    timecard = models.ForeignKey(Timecard)
-    
-class MachineMembers(models.Model):
-    machine = models.ForeignKey(Machine,on_delete=models.CASCADE)
 
-class JobMembers(models.Model):
-    job = models.ForeignKey(Job,on_delete=models.CASCADE)
-
-class TimecardMembers(models.Model):
-    timecard = models.ForeignKey(Timecard,on_delete=models.CASCADE)
 
 

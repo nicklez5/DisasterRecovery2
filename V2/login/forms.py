@@ -1,7 +1,8 @@
 from django import forms
-from myapi.models import CustomUser,Machine,Timecard,Job
+from backenddb.models import Machine,Timecard,Job
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,AuthenticationForm
 from django.contrib.auth.models import User
+from .models import CustomUser
 
 class CustomUserForm(UserCreationForm):
     class Meta:

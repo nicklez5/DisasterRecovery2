@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path,include,re_path
 from DRapi.views import homepage
 
+from login.views import UsersListView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('rest_framework.urls')),
     re_path(r'^',include('backenddb.urls')),
     path('users/',include('login.urls')),
-    path('users/',include("django.contrib.auth.urls"))
+    path('',UsersListView.as_view(),name='home'),
     
 ]
+
