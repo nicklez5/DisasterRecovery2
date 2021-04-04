@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Create a User {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div style="float: right; width:35%;
+            height:200px;
+            position: fixed;
+            top: 30%;
+            left: 40%;
+            margin-top: -100px;
+            margin-left: -100px; ">
+
+<form method="post" style="margin_top:50px">
+    <h1 style="margin-bottom: 25px; text-align:center">Create an Account</h1>
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="btn-group" role="group" aria-label="Basic example" style="margin-top: 25px;">
+        <button type="submit" class="btn btn-info" style="margin-right:5%;">Save</button>
+        <a href="{%url 'home'%}" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+</div>
+{% endblock %}
