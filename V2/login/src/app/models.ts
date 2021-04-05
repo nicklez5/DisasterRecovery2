@@ -1,0 +1,25 @@
+export class Machine{
+    constructor(){}
+    public machine_code: string;
+    public description: string;
+    public hourly_rent: number;
+    public maxhoursperday: number;
+}
+
+export class Job{
+    constructor(){}
+    public code: string;
+    public description: string;
+    public hourly_rate: number;
+    public maxhoursperday: number;
+
+}
+
+export class Timecard{
+    constructor(){}
+    public sitecode: string;
+    public contractor_name: string;
+    public total_hours: number;
+    public total_amount: number;
+    public status: string;
+}

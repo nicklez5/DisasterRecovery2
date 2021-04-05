@@ -15,15 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include,re_path
-from DRapi.views import homepage
-
-from login.views import UsersListView
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('rest_framework.urls')),
     re_path(r'^',include('backenddb.urls')),
-    path('users/',include('login.urls')),
-    path('',UsersListView.as_view(),name='home'),
+    path('auth/login/',obtain_jwt_token),
+    path('auth/refresh-token/',refresh_jwt_token),
     
 ]
 

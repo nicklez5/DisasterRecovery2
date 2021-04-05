@@ -1,0 +1,36 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+  
+      <form #register="ngForm" (ngSubmit)="onClickSubmit(register.value)" class="example-form">
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input type="text" name="Name" matInput placeholder="Name" ngModel>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input type="text" name="Username" matInput placeholder="Username" ngModel>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input type="password" name="Password" matInput placeholder="Password" ngModel>
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Choose designation</mat-label>
+            <mat-select name="DesignationID" ngModel>
+              <mat-option [value]="user" *ngFor="let user of User" >{{user}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+        </mat-card-content>
+  
+        <button type="submit" value="submit" mat-stroked-button color="accent" class="btn-block">Register</button>
+  
+      </form>
+    </mat-card>
+  </div>

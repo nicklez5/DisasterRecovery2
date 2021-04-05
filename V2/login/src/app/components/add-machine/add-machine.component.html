@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <h2>Add Machine</h2>
+        <form #machForm="ngForm" (ngSubmit)=onSubmit(machForm)>
+            <div class="form-group">
+                <label>Machine code</label>
+                <input class="form-control" type="text" required name="MachineCode" #MachineCode="ngModel" [class.is-invalid]="MachineCode.invalid && MachineCode.touched" [(ngModel)]="machModel.machine_code">
+                <div *ngIf="MachineCode.touched && MachineCode.errors">
+                    <div class="alert alert-danger" *ngIf="MachineCode.errors.required">Machine Code Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" type="text" required name="Description" #Description="ngModel" [class.is-invalid]="Description.invalid && Description.touched" [(ngModel)]="empModel.description">
+                <div *ngIf="Description.touched && Description.errors">
+                    <div class="alert alert-danger" *ngIf="Description.errors.required">Description Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <Label>Hourly Rent</Label>
+                <input class="form-control" type="number" required name="Salary" #Salary="ngModel" [class.is-invalid]="Salary.invalid && Salary.touched" [(ngModel)]="empModel.Salary">
+                <div *ngIf="Salary.touched && Salary.errors">
+                    <div class="alert alert-danger" *ngIf="Salary.errors.required">Salary Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <Label>Department</Label>
+                <input class="form-control" type="text" required name="Department" #Department="ngModel" [class.is-invalid]="Department.invalid && Department.touched" [(ngModel)]="empModel.Department">
+                <div *ngIf="Department.touched && Department.errors">
+                    <div class="alert alert-danger" *ngIf="Department.errors.required">Department Required</div>
+                </div>
+            </div>
+            <button mat-flat-button color="accent">Submit</button>
+        </form>
+</div>

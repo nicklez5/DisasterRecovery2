@@ -10,18 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import sys 
+
 
 
 from os import path,getenv
 from os.path import join
 from pathlib import Path
 from dotenv import load_dotenv
-sys.path.append("..")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-TEMPLATE_DIR = path.join(BASE_DIR,'templates')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -33,7 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = '/users/login'
 
 # Application definition
 
@@ -47,7 +46,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'backenddb',
     'corsheaders',
-    'login',
     'crispy_forms'
 ]
 
@@ -71,7 +69,7 @@ ROOT_URLCONF = 'DRapi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,19 +137,26 @@ STATICFILES_DIRS = [
     path.join(BASE_DIR,'static'),
 ]
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+
+    'DEFAULT_PERMISSION_CLASSES' : (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ),
+    'NON_FIELD_ERRORS_KEY': 'global',
 }
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': timedelta(days=2)
+}
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_USERNAME_REQUIRED = False
-AUTH_USER_MODEL = 'login.CustomUser'
-AUTHENTICATION_BACKENDS = ['login.backends.UsernameBackend']
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
 
 # LOGIN_REDIRECT_URL="/"
