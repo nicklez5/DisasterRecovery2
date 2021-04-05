@@ -16,22 +16,7 @@
                      <i class="fa fa-caret-down"></i>
                 </button>
           
-              <div class="dropdown-content">
-                  <!-- Login/Register -->
-                  {% if user.is_authenticated %}
-          <!--             <a href="#">Account</a> -->
-                      <a href = "{% url 'profile:update' request.user.profile.profile_id%}">My profile</a>
-                      <a href = "{% url 'donations:list_my_donations'%}">Order History</a> <!-- Donations the user made -->
-                      <a class = "nav-link" href = "{% url 'logout'%} " >logout</a>
-                  {% else %}
-                    <!-- Ensure that the user is logged in to see account related info -->
-          <!--             <a href=  "{% url 'login'%}" Account</a> --> 
-                      <a href = "{% url 'login'%}">My profile</a>
-                      <a href="{% url 'login'%}">Order History</a>   <!-- Donations the user made -->
-                      <a class = "nav-link" href = "{% url 'login'%}">login</a>
-                  {% endif %}
-          
-              </div>
+              
             </div>
           </div>
           
@@ -39,42 +24,30 @@
             <div class="side">
           <div class="sidenav">
                   {% if user.is_authenticated %}
-                  <input type="checkbox" id="title3" />
-                 <label for="title3" style="font-size: 30px; ">Accounts</label>
                  <div class="content">
                   <ul>
                        <li>
-                         <a href = "{% url 'profile:update' request.user.profile.profile_id%}">My profile</a>
-                       </li>
-                       <li>
-                          <a href = "{% url 'donations:list_my_donations'%}">Order History</a> <!-- Donations the user made -->
-                       </li>
-                   </ul>
-                      <ul>
-                       <li>
-                        <a class = "nav-link" href = "{% url 'logout'%} " >logout</a>
+                        Timecard Submission
                        </li>
                    </ul>
                  </div>
                  {% endif %}
                  <!-- Staff Access Only! -->
                   {% if user.is_authenticated  and  request.user.is_staff  %}
-                  <input type="checkbox" id="title1" />
-                  <label for="title1" style="font-size: 30px;">Admin Panel</label>
                  <div class="content">
                    <ul>
                        <li>
-                        <a href = "{% url 'users:All_Users'%}">Users Management</a>
+                        <a href = "{% url 'users:All_Users'%}">Job code Management</a>
                        </li>
                    </ul>
                       <ul>
                        <li>
-                         <a href = "{% url 'donations:list_charities'%}">Charities Management</a>
+                         <a href = "{% url 'donations:list_charities'%}"> Machine Management</a>
                        </li>
                    </ul>
                       <ul>
                        <li>
-                         <a href = "{% url 'donations:list'%}">Donations Management</a>
+                         <a href = "{% url 'donations:list'%}">TimeCard Approval</a>
                        </li>
                    </ul>
                  </div>
