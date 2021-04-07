@@ -1,1 +1,34 @@
-<p>add-job works!</p>
+<div class="container-fluid">
+    <h2>Add Job</h2>
+        <form #jobForm="ngForm" (ngSubmit)=onSubmit(jobForm)>
+            <div class="form-group">
+                <label>Code</label>
+                <input class="form-control" type="text" required name="Code" #Code="ngModel" [class.is-invalid]="Code.invalid && Code.touched" [(ngModel)]="jobModel.code">
+                <div *ngIf="Code.touched && Code.errors">
+                    <div class="alert alert-danger" *ngIf="Code.errors.required">Code Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" type="text" required name="Description" #Description="ngModel" [class.is-invalid]="Description.invalid && Description.touched" [(ngModel)]="jobModel.description">
+                <div *ngIf="Description.touched && Description.errors">
+                    <div class="alert alert-danger" *ngIf="Description.errors.required">Description Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <Label>Hourly Rent</Label>
+                <input class="form-control" type="number" required name="HourlyRent" #HourlyRent="ngModel" [class.is-invalid]="HourlyRent.invalid && HourlyRent.touched" [(ngModel)]="jobModel.hourly_rate">
+                <div *ngIf="HourlyRent.touched && HourlyRent.errors">
+                    <div class="alert alert-danger" *ngIf="HourlyRent.errors.required">Hourly Rent Required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <Label>Max Hours Per Day</Label>
+                <input class="form-control" type="number" required name="MaxHoursPerDay" #MaxHoursPerDay="ngModel" [class.is-invalid]="MaxHoursPerDay.invalid && MaxHoursPerDay.touched" [(ngModel)]="jobModel.maxhoursperday">
+                <div *ngIf="MaxHoursPerDay.touched && MaxHoursPerDay.errors">
+                    <div class="alert alert-danger" *ngIf="MaxHoursPerDay.errors.required">Max Hours Per Day Required</div>
+                </div>
+            </div>
+            <button mat-flat-button color="accent">Submit</button>
+        </form>
+</div>

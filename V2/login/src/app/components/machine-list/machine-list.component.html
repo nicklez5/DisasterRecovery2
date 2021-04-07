@@ -1,1 +1,25 @@
-<p>machine-list works!</p>
+<h1>Machine List</h1>
+<h3>{{ errorMsg }}</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Machine Code</th>
+            <th>Description</th>
+            <th>Hourly Rent</th>
+            <th>Max Hours Per Day</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <h1>Machine Management</h1>
+        <button (click)="goAdd()">Add</button>
+        <tr *ngFor="let x of machines;">
+            <td>{{x.machine_code}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.hourly_rent | currency:'USD':true:'2.2-4'}}/Hr</td>
+            <td>{{ x.maxhoursperday }} Hr</td>
+            <button (click)="onEdit(x)">Edit</button>
+            <button (click)="onDelete(x)">Delete</button>
+        </tr>
+    </tbody>
+</table>                                             

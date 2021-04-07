@@ -1,1 +1,23 @@
-<p>user-timecard-list works!</p>
+<h2>Timesheet List</h2>
+<h3>{{errorMsg}}</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Site Code</th>
+            <th>Contractor Name</th>
+            <th>Total Hours</th>
+            <th>Total Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <button (click)="goAdd()">Enter new timesheet</button>
+        <tr *ngFor="let x of timecards;">
+            <td>{{x.sitecode}}</td>
+            <td>{{x.contractor_name}}</td>
+            <td>{{x.total_hours}}</td>
+            <td>{{x.total_amount}}</td>
+            <td>{{x.status}}</td>
+        </tr>
+    </tbody>
+</table>

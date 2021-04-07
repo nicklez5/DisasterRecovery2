@@ -149,10 +149,7 @@ REST_FRAMEWORK = {
     ),
     'NON_FIELD_ERRORS_KEY': 'global',
 }
-JWT_AUTH = {
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': timedelta(days=2)
-}
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

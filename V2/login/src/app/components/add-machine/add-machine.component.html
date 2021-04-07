@@ -10,23 +10,23 @@
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <input class="form-control" type="text" required name="Description" #Description="ngModel" [class.is-invalid]="Description.invalid && Description.touched" [(ngModel)]="empModel.description">
+                <input class="form-control" type="text" required name="Description" #Description="ngModel" [class.is-invalid]="Description.invalid && Description.touched" [(ngModel)]="machModel.description">
                 <div *ngIf="Description.touched && Description.errors">
                     <div class="alert alert-danger" *ngIf="Description.errors.required">Description Required</div>
                 </div>
             </div>
             <div class="form-group">
                 <Label>Hourly Rent</Label>
-                <input class="form-control" type="number" required name="Salary" #Salary="ngModel" [class.is-invalid]="Salary.invalid && Salary.touched" [(ngModel)]="empModel.Salary">
-                <div *ngIf="Salary.touched && Salary.errors">
-                    <div class="alert alert-danger" *ngIf="Salary.errors.required">Salary Required</div>
+                <input class="form-control" type="number" required name="HourlyRent" #HourlyRent="ngModel" [class.is-invalid]="HourlyRent.invalid && HourlyRent.touched" [(ngModel)]="machModel.hourly_rent">
+                <div *ngIf="HourlyRent.touched && HourlyRent.errors">
+                    <div class="alert alert-danger" *ngIf="HourlyRent.errors.required">Hourly Rent Required</div>
                 </div>
             </div>
             <div class="form-group">
-                <Label>Department</Label>
-                <input class="form-control" type="text" required name="Department" #Department="ngModel" [class.is-invalid]="Department.invalid && Department.touched" [(ngModel)]="empModel.Department">
-                <div *ngIf="Department.touched && Department.errors">
-                    <div class="alert alert-danger" *ngIf="Department.errors.required">Department Required</div>
+                <Label>Max Hours Per Day</Label>
+                <input class="form-control" type="number" required name="MaxHoursPerDay" #MaxHoursPerDay="ngModel" [class.is-invalid]="MaxHoursPerDay.invalid && MaxHoursPerDay.touched" [(ngModel)]="machModel.maxhoursperday">
+                <div *ngIf="MaxHoursPerDay.touched && MaxHoursPerDay.errors">
+                    <div class="alert alert-danger" *ngIf="MaxHoursPerDay.errors.required">Max Hours Per Day Required</div>
                 </div>
             </div>
             <button mat-flat-button color="accent">Submit</button>
