@@ -1,6 +1,5 @@
 export class Machine{
     constructor(){}
-    public id: number;
     public machine_code: string;
     public description: string;
     public hourly_rent: number;
@@ -9,7 +8,6 @@ export class Machine{
 
 export class Job{
     constructor(){}
-    public id: number;
     public code: string;
     public description: string;
     public hourly_rate: number;
@@ -19,7 +17,6 @@ export class Job{
 
 export class Timecard{
     constructor(){}
-    public id: number;
     public sitecode: string;
     public contractor_name: string;
     public total_hours: number;

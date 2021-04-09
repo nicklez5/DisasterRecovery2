@@ -25,7 +25,7 @@ export class UserTimecardListComponent implements OnInit {
   }
 
   goAdd(): void{
-    this.router.navigate(['timecards/add']);
+    this.router.navigate(['usertimecards/add']);
   }
 
 }

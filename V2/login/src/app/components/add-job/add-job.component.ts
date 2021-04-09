@@ -18,7 +18,8 @@ export class AddJobComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(machModel: any){
+  onSubmit(jobModel: any){
+    
     this.machService.postJob(this.jobModel).subscribe(
       (data) => {this.jobs = data;
         this.machService.getJobs().subscribe(
@@ -27,6 +28,7 @@ export class AddJobComponent implements OnInit {
         )},
         (error) => this.errorMsg = error 
     )
+    this.router.navigate(['/jobs'])
 
   }
 }

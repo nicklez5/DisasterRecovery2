@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
       this.router.navigate(['/home/'])
     }else if((data.Username == this.user_username) && (data.Password == this.user_pw)){
       alert("User success");
+      this.router.navigate(['/home2/'])
     }else{
       alert("Failed");
     }

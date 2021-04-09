@@ -15,7 +15,7 @@ export class EditMachineComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.paramMap.subscribe((params: ParamMap) => {
-      let id = params.get('id');
+      let id = params.get('machine_code');
       console.log(id);
       this.machineId = id;
       console.log("Machine Update ID: " + this.machineId);

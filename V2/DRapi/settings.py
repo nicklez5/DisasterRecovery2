@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,9 +49,6 @@ INSTALLED_APPS = [
     'crispy_forms'
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,22 +135,15 @@ STATICFILES_DIRS = [
 ]
 REST_FRAMEWORK = {
 
-    'DEFAULT_PERMISSION_CLASSES' : (
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ),
-
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ),
-    'NON_FIELD_ERRORS_KEY': 'global',
+    ]
+    
 }
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-
+CORS_ORIGIN_WHITELIST = ('https://localhost:8000', )
 
 # LOGIN_REDIRECT_URL="/"

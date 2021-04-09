@@ -69,6 +69,9 @@ export class UserAddTimecardListComponent implements OnInit {
       (error) => this.errorMsg = error,
       () => console.log('the job sequence completed!')
     );
+    
+  }
+  ngOnChanges(): void{
     calculate_me();
     calculate_me2();
     calculate_total();

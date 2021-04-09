@@ -18,23 +18,27 @@ export class MachineListComponent implements OnInit {
     this.machService.getMachines().subscribe(
       (data) => this.machines = data,
       (error) => this.errorMsg = error,
-      () => console.log('the sequence completed!')
+      () => console.log("Number of machines: " + this.machines.length)
     );
   }
   goAdd(): void{
     this.router.navigate(['/machines/add']);
   }
   onEdit(x : Machine): void{
-    this.router.navigate(['/machines/',x.id,'update']);
+    this.router.navigate(['/machines/',x.machine_code,'update']);
   }
   onDelete(x : Machine): void{
-    this.machService.deleteMachine(x.id).subscribe(() => {
+    this.machService.deleteMachine(x.machine_code).subscribe(() => {
       this.machService.getMachines().subscribe(
         (data) => this.machines = data,
         (error) => this.errorMsg = error
       )
+      console.log("Deleting machine");
 
     });
+  }
+  goBack(): void{
+    this.router.navigate(['/home']);
   }
 
 }

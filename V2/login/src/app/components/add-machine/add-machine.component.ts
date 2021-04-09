@@ -15,6 +15,7 @@ export class AddMachineComponent implements OnInit {
   constructor(private machService: ApiService, private router: Router ) { }
 
   ngOnInit(): void {
+   
   }
 
   onSubmit(machModel: any){
@@ -26,6 +27,7 @@ export class AddMachineComponent implements OnInit {
         )},
         (error) => this.errorMsg = error 
     )
+    this.router.navigate(['/machines'])
 
   }
   

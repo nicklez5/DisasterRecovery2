@@ -40,6 +40,7 @@ export class ApiService {
   getJobs(): Observable<Job[]>{
     return this.http.get<Job[]>(this._url2).pipe(catchError(this.errorHandler));
   }
+
   getJobById(id: number): Observable<Job[]>{
     return this.http.get<Job[]>(this._url2 + id).pipe(catchError(this.errorHandler));
   }
@@ -49,6 +50,7 @@ export class ApiService {
   }
 
   updateJob(id: number, empData: any): Observable<Job[]>{
+    console.log("Entering updating job");
     console.log(empData);
     console.log(this._url2 + id);
     return this.http.put<Job[]>(this._url2 + id,empData).pipe(catchError(this.errorHandler));
@@ -80,4 +82,5 @@ export class ApiService {
   deleteTimecard(id:any){
     return this.http.delete(this._url3 + id);
   }
+
 }

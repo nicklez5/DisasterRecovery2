@@ -1,7 +1,7 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularMaterialModule } from './angular-material.module';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,  routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SigninComponent } from './components/signin/signin.component';
@@ -18,6 +18,9 @@ import { UserTimecardListComponent } from './components/user-timecard-list/user-
 import { UserAddTimecardListComponent } from './components/user-add-timecard-list/user-add-timecard-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes} from '@angular/router';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { HttpClientModule } from '@angular/common/http';
+import { Home2Component } from './components/home2/home2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +34,16 @@ import { RouterModule, Routes} from '@angular/router';
     EditJobComponent,
     UserTimecardListComponent,
     UserAddTimecardListComponent,
-    HomeComponent
-   
+    HomeComponent,
+    PagenotfoundComponent,
+    routingComponents,
+    Home2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularMaterialModule,
     FlexLayoutModule,
     FormsModule,

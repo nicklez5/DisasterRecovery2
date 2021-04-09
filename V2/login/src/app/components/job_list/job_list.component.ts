@@ -19,10 +19,10 @@ export class JobListComponent implements OnInit {
     this.router.navigate(['/jobs/add']);
   }
   onEdit(x : Job): void{
-    this.router.navigate(['/jobs/',x.id,'update']);
+    this.router.navigate(['/jobs/',x.code,'update']);
   }
   onDelete(x : Job): void{
-    this.jobService.deleteJob(x.id).subscribe(() => {
+    this.jobService.deleteJob(x.code).subscribe(() => {
       this.jobService.getJobs().subscribe(
         (data) => this.jobs = data,
         (error) => this.errorMsg = error
@@ -31,11 +31,17 @@ export class JobListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.jobService.getJobs().subscribe(
       (data) => this.jobs = data,
       (error) => this.errorMsg = error,
-      () => console.log('the sequence completed!')
-    );   
+      () => console.log("Number of jobs: " + this.jobs.length)
+    
+    );  
+    
+  }
+  goBack(): void{
+    this.router.navigate(['/home']);
   }
 
 
