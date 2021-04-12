@@ -7,16 +7,17 @@
             <th>Contractor Name</th>
             <th>Total Hrs</th>
             <th>Total Amount</th>
-            <th></th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let x of timecards;">
+        <tr *ngFor="let x of timecards; ">
             <td>{{x.sitecode}}</td>
             <td>{{x.contractor_name}}</td>
             <td>{{x.total_hours }} Hrs</td>
             <td>{{x.total_amount | currency: 'USD': true:'2.2-4'}}</td>
-            <td>{{x.status }}</td>
+            <td >{{ x.status | admin}}</td>
+            <button (click)="final_me(x.sitecode, x)">Finalize</button>
         </tr>
     </tbody>
     <button (click)="goBack()">Back</button>

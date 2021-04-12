@@ -36,7 +36,7 @@ class Timecard(models.Model):
     contractor_name = models.CharField(max_length=75,default='')
     total_hours = models.IntegerField(default=0)
     total_amount = models.FloatField(null=True,blank=True,default=None)
-    status = "review"
+    status = models.CharField(max_length=75,default='open')
 
 
     class Meta:

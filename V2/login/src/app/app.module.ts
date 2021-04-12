@@ -21,6 +21,8 @@ import { RouterModule, Routes} from '@angular/router';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Home2Component } from './components/home2/home2.component';
+
+import { AdminPipe } from './admin.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { Home2Component } from './components/home2/home2.component';
     HomeComponent,
     PagenotfoundComponent,
     routingComponents,
-    Home2Component
+    Home2Component,
+    AdminPipe
   ],
   imports: [
     BrowserModule,

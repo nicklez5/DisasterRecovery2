@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'machines/add', component: AddMachineComponent },
   { path: 'machines/:machine_code/update', component: EditMachineComponent },
   { path: 'timecards', component: TimecardListComponent },
+  { path: 'timecards/:sitecode', component: TimecardListComponent },
   { path: 'usertimecards', component: UserTimecardListComponent },
   { path: 'usertimecards/add', component: UserAddTimecardListComponent },
   { path: "**", component: PagenotfoundComponent}

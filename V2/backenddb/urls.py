@@ -12,7 +12,7 @@ urlpatterns=[
     re_path(r'^job/([0-9a-zA-Z]+)$',views.JobDetail.as_view()),
 
     re_path(r'^timecard/$',views.TimecardList.as_view()),
-    re_path(r'^timecard/([0-9a-zA-Z]+)$',views.TimecardDetail.as_view()),
+    re_path(r'^timecard/([%0-9a-zA-Z]+)$',views.TimecardDetail.as_view()),
     
 
 ]
