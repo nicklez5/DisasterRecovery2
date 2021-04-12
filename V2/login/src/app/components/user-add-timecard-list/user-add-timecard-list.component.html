@@ -8,6 +8,7 @@
                 <div *ngIf="SiteCode.touched && SiteCode.errors">
                     <div class="alert alert-danger" *ngIf="SiteCode.errors.required">Site Code Required</div>
                 </div>
+                <br>
                 <label>Contractor Name</label>
                 <input class="form-control" type="text" required name="ContractorName" #ContractorName="ngModel" [class.is-invalid]="ContractorName.invalid && ContractorName.touched" [(ngModel)]="timecardModel.contractor_name">
                 <div *ngIf="ContractorName.touched && ContractorName.errors">
@@ -18,40 +19,39 @@
 
             <h3>Labor Entry</h3>
             <div class="form-group">
+                <div>
                 <select [(ngModel)]="jobModel.hourly_rate" id="id_of_select_job">
                     <option *ngFor="let job_option of jobs" [ngValue]="job_option.hourly_rate">{{job_option.code}}</option>
                 </select>
-
-                <label>Hours worked</label>
-                <input class="form-control" type="number" required name="HrsWorked" id="HrsWorked">
-                
+                </div>
+            <br>
+                <label>Hrs worked:</label>
+                <input class="form-control input-sm" type="number" required name="HrsWorked" id="HrsWorked" [(ngModel)] ="HrsWorked">
+            <br>
                 <label>Total:</label>
-                <input class="form-control" type="number" name="total" id="total">
+                <input class="form-control input-sm" type="number" required name="TotalWorked" id="TotalWorked" [(ngModel)]="Total">
             </div>
 
 
             <h4>Machine Entry</h4>
             <div class="form-group">
+                <div>
                 <select [(ngModel)]="machinecardModel.hourly_rent" id="id_of_machine_job">
                     <option *ngFor="let machine_option of machines" [ngValue]="machine_option.hourly_rate">{{machine_option.machine_code}}</option>
                 </select>
-
-                <label>Hours Worked</label>
-                <input class="form-control" type="number" required name="HrsWorked2" id="HrsWorked2">
-               
+            </div>
+            <br>
+                <label>Hrs Used:</label>
+                <input class="form-control input-sm" type="number" required name="HrsWorked2" id="HrsWorked2" [(ngModel)]="HrsWorked2">
+            <br>
                 <label>Total:</label>
-                <input class="form-control" type="number" id="total2" name="total2" >
+                <input class="form-control input-sm" type="number" required name="TotalWorked2" id="TotalWorked2" [(ngModel)]="Total2">
+                <br>
+                <label>Status:</label>
+                <input class="form-control input-sm" type="text" required name="status" id="status" [(ngModel)]="status">
 
             </div>
-            <div>
-
-                <label>Total from Jobs/Machines: </label>
-                <input class="form-control" type="number" id="total3" name="total3" #total3 = "ngModel" [(ngModel)]="timecardModel.total_amount">
            
-                <label>Total Hours from Jobs/Machines: </label>
-                <input class="form-control" type="number" id="total4" name="total4" #total4 = "ngModel" [(ngModel)]="timecardModel.total_hours">
-
-            </div>
           
 
             <button mat-flat-button color="accent">Submit</button>
